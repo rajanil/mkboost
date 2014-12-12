@@ -3,10 +3,10 @@
 **mkboot** is an algorithm for learning accurate models for predicting the host class of
 viruses based on sequence elements in the viral proteome. mkboost is written in Python2.x,
 with computationally intensive segments coded in C inlined in Python.
-The algorithm is based on [Adaboost with Alternating Decision Trees]() using
-sequence k-mers as features.
+The algorithm is based on a multiclass version of [Adaboost with Alternating Decision Trees](http://cseweb.ucsd.edu/~yfreund/papers/atrees.pdf) 
+using sequence k-mers as features.
 
-This project was originally (and continues to be) hosted on [SourceForge]().
+This project was originally (and continues to be) hosted on [sourceforge](http://mkboost.sourceforge.net/).
 This repo contains set of scripts to load the data and run the algorithm, along with a test data set. 
 It also contains scripts used for generating the figures in the associated publication. 
 This document describes how to download and setup this software package and provides 
@@ -17,6 +17,7 @@ belonging to the Picornaviridae family.
 
 Anil Raj, Michael Dewar, Gustavo Palacios, Raul Rabadan and Chris Wiggins. (2011) *Identifying
 Hosts of Families of Viruses: A Machine Learning Approach.* PLoS ONE, 6(12): e27631.
+[arxiv](http://arxiv.org/abs/1105.5821),[PLoS ONE](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0027631)
 
 ## Dependencies
 
@@ -44,8 +45,8 @@ To retrieve the latest code updates, you can do the following:
     git fetch
     git merge origin/master
 
-Since the software compiles relevant C code inline using [weave](), no further
-compilation is necessary.
+Since the software compiles relevant C code inline using [weave](http://docs.scipy.org/doc/scipy-0.14.0/reference/tutorial/weave.html), 
+no further compilation is necessary.
 
 ## Executing the code
 
@@ -58,10 +59,10 @@ in terms of counts of these sequence features.
     $ python generate_features.py
         + imports: mismatch.py
         + generates the feature space from raw data in <project path>/data/
-        + pre-processed data is stored in <project path>/cache/<virus family>_protein/
+        + pre-processed data is stored in mkboost/cache/<virus family>_protein/
 
-        1a. mismatch.py
-            + functions to generate the set of all k-mers
+        mismatch.py
+            + contains functions to generate the set of all k-mers
             and the mismatch feature space.
 
 In the second step, the boosting with ADT
@@ -72,12 +73,12 @@ model complexity.
     $ python main.py
         + imports: splitdata.py, boost.py
         + wrapper script to run boosting
-        + output files are written to <project path>/cache/<virus family>_protein/
+        + output files are written to mkboost/cache/<virus family>_protein/
 
-        2a. splitdata.py
+        splitdata.py
             + splits the data into test / train for N-fold CV
 
-        2b. boost.py
+        boost.py
             + runs Adaboost
 
 The demo script provided outlines how to run both these steps using the test data.
@@ -86,7 +87,7 @@ The demo script provided outlines how to run both these steps using the test dat
 
 ### Inputs
 
-The inputs that need to be passed to be specified in `demo.py` are
+The inputs that need to be specified in `demo.py` are
 +   name of virus family (assuming the data files are named as shown in `/data`)
 +   K (length of k-mers)
 +   M (max number of mis-matches allowed)
@@ -106,7 +107,7 @@ The algorithm outputs
 ### Visualization
 
 Scripts to generate the plots in the paper are outlined here.
-Figures are output to <project path>/fig/
+Figures are output to mkboost/fig/
 
     3a. plot_boost_auc.py
         - Generates Fig 1 and 2.
