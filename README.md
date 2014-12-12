@@ -6,6 +6,7 @@ with computationally intensive segments coded in C inlined in Python.
 The algorithm is based on [Adaboost with Alternating Decision Trees]() using
 sequence k-mers as features.
 
+This project was originally (and continues to be) hosted on [SourceForge]().
 This repo contains set of scripts to load the data and run the algorithm, along with a test data set. 
 It also contains scripts used for generating the figures in the associated publication. 
 This document describes how to download and setup this software package and provides 
