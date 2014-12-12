@@ -17,7 +17,8 @@ belonging to the Picornaviridae family.
 
 Anil Raj, Michael Dewar, Gustavo Palacios, Raul Rabadan and Chris Wiggins. (2011) *Identifying
 Hosts of Families of Viruses: A Machine Learning Approach.* PLoS ONE, 6(12): e27631.
-[arxiv](http://arxiv.org/abs/1105.5821),[PLoS ONE](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0027631)
+[[arxiv](http://arxiv.org/abs/1105.5821), 
+[PLoS ONE](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0027631)]
 
 ## Dependencies
 
